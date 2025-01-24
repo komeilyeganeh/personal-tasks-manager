@@ -25,7 +25,7 @@ export const AppDataSource = new DataSource({
   password: process.env.MYSQL_PASS,
   database: process.env.MYSQL_DB,
   entities: [Task],
-  synchronize: true,
+  synchronize: true
 });
 
 AppDataSource.initialize()
