@@ -14,7 +14,8 @@ export const Task: FC<ITask> = ({
   text,
   onStatusChange,
   onClick,
-}): ReactElement => {
+}): ReactElement => {  
+  // return jsx
   return (
     <Box
       display="flex"
@@ -24,7 +25,7 @@ export const Task: FC<ITask> = ({
       mb={4}
       p={2}
       sx={{
-        backgroundColor: "background.paper",
+        backgroundColor: "background.default",
         borderRadius: "8px",
         border: "1px solid",
         borderColor: "error.light",
@@ -32,7 +33,7 @@ export const Task: FC<ITask> = ({
     >
       <TaskHeader title={title} date={date} />
       <TaskDescription text={text} />
-      <TaskFooter onClick={onClick} onStatusChange={onStatusChange} />
+      <TaskFooter onClick={onClick} onStatusChange={onStatusChange} status={status} id={id}/>
     </Box>
   );
 };

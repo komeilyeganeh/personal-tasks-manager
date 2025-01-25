@@ -2,15 +2,15 @@ import { createTheme, ThemeOptions } from "@mui/material";
 
 export const customTheme: ThemeOptions = createTheme({
     palette: {
-        mode: "dark",
+        mode: "light",
         primary: {
-            light: "rgba(168,85,247, .80)",
-            main: "rgba(168,85,247,.65)",
-            dark: "rgba(168,85,247,.28)"
+            light: "rgba(255, 36, 36, 0.8)",
+            main: "rgba(255, 36, 36,.65)",
+            dark: "rgba(255, 36, 36,.28)"
         },
         background: {
-            paper: "#151515",
-            default: "rgba(0,0,0,.96)"
+            paper: "#f5f5f5",
+            default: "#fff"
         }
     }
 });

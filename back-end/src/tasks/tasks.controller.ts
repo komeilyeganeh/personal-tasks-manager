@@ -14,7 +14,7 @@ class TasksController {
   public async getAll(
     req: Request,
     res: Response,
-  ): Promise<Response> {
+  ): Promise<any> {
     // Declare a variable to hold all tasks
     let allTasks: Task[];
 
@@ -43,7 +43,7 @@ class TasksController {
   public async create(
     req: Request,
     res: Response,
-  ): Promise<Response> {
+  ): Promise<any> {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
@@ -85,7 +85,7 @@ class TasksController {
   public async update(
     req: Request,
     res: Response,
-  ): Promise<Response> {
+  ): Promise<any> {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {

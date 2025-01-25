@@ -27,7 +27,7 @@ export const TaskCounter: FC<ITaskCounter> = ({
             borderColor: `${emitCorrectBorderColor(status)}`,
           }}
         >
-          <Typography color="#fff" variant="h4">
+          <Typography color="#151515" variant="h4">
             {count}
           </Typography>
         </Avatar>

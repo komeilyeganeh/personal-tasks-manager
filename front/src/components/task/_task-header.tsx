@@ -9,7 +9,7 @@ export const TaskHeader: FC<ITaskHeader> = ({title = "Default text", date}): Rea
         <Typography variant="h6">{title}</Typography>
       </Box>
       <Box>
-        <Chip variant="outlined" label={date?.toString()}/>
+        <Chip variant="outlined" label={date?.format("MMMM, DD, YYYY")}/>
       </Box>
     </Box>
   );

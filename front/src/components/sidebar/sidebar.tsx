@@ -11,7 +11,7 @@ export const Sidebar: FC = (): ReactElement => {
       sx={{
         height: "100vh",
         position: "fixed",
-        right: 0,
+        left: 0,
         top: 0,
         width: "100%",
         backgroundColor: "background.paper",
@@ -19,6 +19,7 @@ export const Sidebar: FC = (): ReactElement => {
         justifyContent: "center",
         flexDirection: "column",
         alignItems: "center",
+        overflowY: "auto",
       }}
     >
       <Profile />
