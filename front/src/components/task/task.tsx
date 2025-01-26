@@ -4,6 +4,8 @@ import { TaskHeader } from "./_task-header";
 import { TaskDescription } from "./_task-description";
 import { TaskFooter } from "./_task-footer";
 import { ITask } from "./interfaces/ITask";
+import { emitCorrectBorderColor } from "../../helpers/emit-correct-border-color";
+import { renderPriorityBorderColor } from "../../helpers/render-priority-border-color";
 
 export const Task: FC<ITask> = ({
   id,
@@ -28,7 +30,7 @@ export const Task: FC<ITask> = ({
         backgroundColor: "background.default",
         borderRadius: "8px",
         border: "1px solid",
-        borderColor: "error.light",
+        borderColor: renderPriorityBorderColor(priority!),
       }}
     >
       <TaskHeader title={title} date={date} />

@@ -1,7 +1,7 @@
 export interface ICreateTask {
-    title: string;
-    description: string;
-    date: string;
-    status: string;
-    priority: string;
+  title: string;
+  description: string;
+  date: string;
+  status: string;
+  priority: string;
 }

@@ -5,6 +5,7 @@ import { ITextField } from "./interfaces/ITextField";
 export const TaskTitleField: FC<ITextField> = ({
   onChange,
   disabled,
+  value
 }): ReactElement => {
   return (
     <TextField
@@ -14,6 +15,7 @@ export const TaskTitleField: FC<ITextField> = ({
       variant="outlined"
       size="small"
       name="title"
+      value={value}
       fullWidth
       onChange={onChange}
       disabled={disabled}

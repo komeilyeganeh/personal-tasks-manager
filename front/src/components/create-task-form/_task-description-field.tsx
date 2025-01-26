@@ -5,6 +5,7 @@ import { ITextField } from "./interfaces/ITextField";
 export const TaskDescriptionField: FC<ITextField> = ({
   onChange,
   disabled,
+  value
 }): ReactElement => {
   return (
     <TextField
@@ -19,6 +20,7 @@ export const TaskDescriptionField: FC<ITextField> = ({
       fullWidth
       disabled={disabled}
       onChange={onChange}
+      value={value}
     />
   );
 };

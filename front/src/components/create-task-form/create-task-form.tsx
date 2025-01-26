@@ -7,7 +7,7 @@ import {
   Alert,
   AlertTitle,
 } from "@mui/material";
-import { FC, ReactElement, useEffect, useState } from "react";
+import { FC, ReactElement, useContext, useEffect, useState } from "react";
 import { TaskTitleField } from "./_task-title-field";
 import { TaskDescriptionField } from "./_task-description-field";
 import { TaskDateField } from "./_task-date-field";
@@ -18,6 +18,7 @@ import dayjs, { Dayjs } from "dayjs";
 import { useMutation } from "@tanstack/react-query";
 import { sendApiReq } from "../../helpers/send-api-req";
 import { ICreateTask } from "../text-area/interfaces/ICreateTask";
+import { TaskStatusChangedContext } from "../../context";
 
 export const CreateTaskForm: FC = (): ReactElement => {
   // states
@@ -31,7 +32,7 @@ export const CreateTaskForm: FC = (): ReactElement => {
     mutationFn: (data: ICreateTask) =>
       sendApiReq("http://localhost:3200/tasks", "POST", data),
   });
-
+  const taskUpdatedContext = useContext(TaskStatusChangedContext);
   const createTaskHandler = () => {
     if (!title || !date || !description) {
       return;
@@ -44,12 +45,18 @@ export const CreateTaskForm: FC = (): ReactElement => {
       priority,
     };
     mutate(task);
+    setTitle("");
+    setDescription("");
+    setDate(null);
+    setStatus("");
+    setPriority("")
   };
 
   // sideEffect
   useEffect(() => {
     if (isSuccess) {
       setIsShowSuccess(true)
+      taskUpdatedContext.toggle();
     }
     const successTimeOut = setTimeout(() => {
       setIsShowSuccess(false)
@@ -78,9 +85,10 @@ export const CreateTaskForm: FC = (): ReactElement => {
         Create A Task
       </Typography>
       <Stack spacing={2} sx={{ width: "100%" }}>
-        <TaskTitleField onChange={(e) => setTitle(e.target.value)} disabled={isPending}/>
+        <TaskTitleField onChange={(e) => setTitle(e.target.value)} disabled={isPending} value={title}/>
         <TaskDescriptionField
           onChange={(e) => setDescription(e.target.value)}
+          value={description}
         />
         <TaskDateField onChange={(e) => setDate(e)} value={date} />
         <Stack direction="row" spacing={2}>
